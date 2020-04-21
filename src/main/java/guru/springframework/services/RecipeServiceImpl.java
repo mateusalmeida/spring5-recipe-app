@@ -10,17 +10,18 @@ import java.util.Set;
 
 @Slf4j
 @Service
-public class RecipeServiceImp implements RecipeService {
+public class RecipeServiceImpl implements RecipeService {
 
-    private RecipeRepository recipeRepository;
+    private final RecipeRepository recipeRepository;
 
-    public RecipeServiceImp(RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 
     @Override
     public Set<Recipe> getRecipes() {
-        log.debug("i'm in the service");
+        log.debug("I'm in the service");
+
         Set<Recipe> recipeSet = new HashSet<>();
         recipeRepository.findAll().iterator().forEachRemaining(recipeSet::add);
         return recipeSet;
