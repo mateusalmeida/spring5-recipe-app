@@ -21,14 +21,14 @@ public class RecipeServiceImplTest {
     RecipeRepository recipeRepository;
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
         recipeService = new RecipeServiceImpl(recipeRepository);
     }
 
     @Test
-    public void getRecipes() {
+    public void getRecipes() throws Exception {
 
         Recipe recipe  = new Recipe();
         HashSet recipeData = new HashSet();
