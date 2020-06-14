@@ -16,6 +16,7 @@ import java.io.IOException;
 @Service
 public class ImageServiceImpl implements ImageService {
 
+
     private final RecipeRepository recipeRepository;
 
     public ImageServiceImpl( RecipeRepository recipeService) {
@@ -45,9 +46,7 @@ public class ImageServiceImpl implements ImageService {
             //todo handle better
             log.error("Error occurred", e);
 
-
             e.printStackTrace();
         }
-
     }
 }

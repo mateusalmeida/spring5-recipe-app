@@ -15,6 +15,7 @@ import java.util.Optional;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
+
 public class ImageServiceImplTest {
 
     @Mock
@@ -23,18 +24,18 @@ public class ImageServiceImplTest {
     ImageService imageService;
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
         imageService = new ImageServiceImpl(recipeRepository);
     }
 
     @Test
-    public void saveImagefile() throws Exception {
+    public void saveImageFile() throws Exception {
         //given
         Long id = 1L;
-        MultipartFile multipartFile = new MockMultipartFile("imagefile", "texting.txt", "text/plain",
-                "Spring Framword Guru".getBytes());
+        MultipartFile multipartFile = new MockMultipartFile("imagefile", "testing.txt", "text/plain",
+                "Spring Framework Guru".getBytes());
 
         Recipe recipe = new Recipe();
         recipe.setId(id);
@@ -52,4 +53,5 @@ public class ImageServiceImplTest {
         Recipe savedRecipe = argumentCaptor.getValue();
         assertEquals(multipartFile.getBytes().length, savedRecipe.getImage().length);
     }
+
 }
